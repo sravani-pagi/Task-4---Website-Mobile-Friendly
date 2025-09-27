@@ -1,0 +1,174 @@
+/* ===================
+   Global Styles
+=================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Change ☰ to X when active */
+.menu-toggle.active::before {
+  content: "✖";
+  font-size: 28px;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 30%;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.content {
+  flex: 1;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* ===================
+   Responsive Styles
+=================== */
+
+/* Tablets and below (<=768px) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 10px;
+  }
+
+  nav ul.active {
+    max-height: 500px; /* Adjust depending on number of links */
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar, .content {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+/* Small phones (<=480px) */
+@media (max-width: 480px) {
+  header, footer {
+    padding: 10px;
+  }
+
+  nav ul {
+    gap: 5px;
+  }
+
+  nav li {
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.3em;
+  }
+
+  .container {
+    margin: 10px;
+  }
+
+  .content, .sidebar {
+    padding: 10px;
+  }
+
+  button, input {
+    width: 100%;
+    font-size: 1em;
+  }
+}
