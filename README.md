@@ -16,7 +16,4 @@ This project is a responsive website built using HTML, CSS, and JavaScript. It f
 - CSS3 (including Flexbox and Media Queries)
 - Vanilla JavaScript
 
-## Installation and Usage
-1. Clone this repository or download the ZIP file.
-2. Ensure the folder structure is maintained:
 
