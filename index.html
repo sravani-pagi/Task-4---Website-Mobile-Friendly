@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sliding Nav with Hero Section</title>
+<style>
+  /* Base styles */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial Black', Arial, sans-serif;
+    background-color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* Hero section styling */
+  .hero-section {
+    background-color: #ffe053; /* Bright Yellow */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5vw;
+    color: #0d0c1d; /* Dark text */
+  }
+  .hero-section h1 {
+    font-size: 9rem;
+    margin: 0;
+    line-height: 1;
+    font-weight: 900;
+  }
+  .hero-section p {
+    font-size: 2rem;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+
+  /* Slider nav */
+  .site-wrapper {
+    position: relative;
+  }
+  .cd-nav {
+  position: fixed;
+  top: 0;
+  right: 0; /* Nav on right */
+  width: 250px;
+  height: 100%;
+  background: rgb(61, 61, 109);
+  transform: translateX(100%); /* Hide offscreen right */
+  visibility: hidden;          /* Hide completely */
+  transition: transform 0.5s ease, visibility 0.5s ease;
+  overflow-y: auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  box-shadow: -2px 0 8px #ffffffec;
+  z-index: 1000;
+}
+
+.navigation-is-open .cd-nav {
+  transform: translateX(0);
+  visibility: visible;         /* Show when open */
+}
+
+  .cd-nav a {
+  text-align: right; /* Align text to right */
+  display: block;
+  margin-bottom: 30px;
+  color: #f4f1f1;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+  /* Hamburger toggle button */
+  .nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px; /* Changed from left to right */
+  left: auto;  /* Reset this to avoid conflicts */
+  z-index: 1100;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+  .nav-toggle span {
+    display: block;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: left center;
+  }
+  .navigation-is-open .nav-toggle span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .navigation-is-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .navigation-is-open .nav-toggle span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+</style>
+</head>
+<body>
+<div class="site-wrapper" id="siteWrapper">
+
+  <!-- Navigation toggle -->
+  <div class="nav-toggle" id="navToggle" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sliding navigation -->
+  <nav class="cd-nav" id="cdNav" aria-label="Primary navigation"><br>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="hero-section">
+    <h1>Hey <br> Elevate!!</h1>
+    <p>Designing Tomorrow’s Mobile-Ready Websites Today.</p>
+  </section>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const siteWrapper = document.getElementById('siteWrapper');
+  navToggle.addEventListener('click', () => {
+    siteWrapper.classList.toggle('navigation-is-open');
+  });
+  navToggle.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      siteWrapper.classList.toggle('navigation-is-open');
+    }
+  });
+</script>
+</body>
+</html>
