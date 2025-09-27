@@ -13,7 +13,9 @@ This project is a responsive website built using HTML, CSS, and JavaScript. It f
 
 ## Technologies Used
 - HTML5
-- CSS3 (including Flexbox and Media Queries)
+- CSS3 
+- Flexbox and Media Queries
 - Vanilla JavaScript
+
 
 
